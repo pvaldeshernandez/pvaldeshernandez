@@ -39,10 +39,6 @@ AI + neuroimaging for clinical impact. I build predictive models and biomarkers 
 ---
 
 ### Activity & Stats
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=pvaldeshernandez&show_icons=true&include_all_commits=true)](https://github.com/anuraghazra/github-readme-stats)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=pvaldeshernandez&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
-[![GitHub Streak](https://streak-stats.demolab.com?user=pvaldeshernandez)](https://git.io/streak-stats)
-![trophy](https://github-profile-trophy.vercel.app/?username=pvaldeshernandez&theme=flat&column=6)
 
 ---
 
