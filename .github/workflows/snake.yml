@@ -1,9 +1,10 @@
+# .github/workflows/snake.yml
 name: Generate Contribution Snake
 
 on:
   schedule:
     - cron: "0 0 * * *"   # run every day at midnight UTC
-  workflow_dispatch:        # allow manual runs
+  workflow_dispatch:
 
 permissions:
   contents: write           # needed to push to repo branches
@@ -11,26 +12,11 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0    # important so we can push to branches
-
-      - name: Ensure output branch exists
-        run: |
-          git fetch origin
-          if ! git show-ref --verify --quiet refs/remotes/origin/output; then
-            echo "Creating output branch"
-            git checkout --orphan output
-            git rm -rf .
-            echo "# Snake animation output" > README.md
-            git add README.md
-            git commit -m "Initialize output branch"
-            git push origin output
-            git checkout $GITHUB_REF_NAME
-          fi
+          fetch-depth: 0
 
       - name: Generate snake SVGs
         uses: Platane/snk/svg-only@v3
