@@ -44,12 +44,14 @@ AI + neuroimaging for clinical impact. I build predictive models and biomarkers 
 
 ### Contribution "snake"
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./dist/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./dist/github-snake.svg" />
-  <img alt="github-snake" src="./dist/github-snake.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/pvaldeshernandez/pvaldeshernandez/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/pvaldeshernandez/pvaldeshernandez/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/pvaldeshernandez/pvaldeshernandez/output/github-snake.svg" />
 </picture>
 
 ---
 
 ### Visitor counter
 ![Visitor Count](https://profile-counter.glitch.me/pvaldeshernandez/count.svg)
+
+Fix: point snake animation to output branch
