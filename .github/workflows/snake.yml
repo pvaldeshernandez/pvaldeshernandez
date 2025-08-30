@@ -2,21 +2,37 @@ name: Generate Contribution Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *"   # run every day at midnight UTC
+  workflow_dispatch:        # allow manual runs
 
 permissions:
-  contents: write
+  contents: write           # needed to push to repo branches
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Generate snake
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # important so we can push to branches
+
+      - name: Ensure output branch exists
+        run: |
+          git fetch origin
+          if ! git show-ref --verify --quiet refs/remotes/origin/output; then
+            echo "Creating output branch"
+            git checkout --orphan output
+            git rm -rf .
+            echo "# Snake animation output" > README.md
+            git add README.md
+            git commit -m "Initialize output branch"
+            git push origin output
+            git checkout $GITHUB_REF_NAME
+          fi
+
+      - name: Generate snake SVGs
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -24,7 +40,7 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
-      - name: Publish to output branch
+      - name: Publish snake to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
