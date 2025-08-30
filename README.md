@@ -54,4 +54,4 @@ AI + neuroimaging for clinical impact. I build predictive models and biomarkers 
 ### Visitor counter
 ![Visitor Count](https://profile-counter.glitch.me/pvaldeshernandez/count.svg)
 
-Fix: point snake animation to output branch
+
